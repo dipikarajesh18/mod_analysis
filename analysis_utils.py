@@ -27,7 +27,7 @@ def plot_category_distribution(df, category_values, top_n=10, game_name="All 4 G
     plt.show()
 
 
-def get_top_categories(df, game_name="", category_column="modCategory"):
+def get_top_categories(df, game_name="", category_column="modCategory", type="count"):
     if game_name:
         df = df[df["game"] == game_name]
     category_percent = (
@@ -39,7 +39,10 @@ def get_top_categories(df, game_name="", category_column="modCategory"):
     category_count = df[category_column].value_counts()
 
     # return category_count
-    return category_percent
+    if type == "percent":
+        return category_percent
+    else:
+        return category_count
 
 def get_top_by_downloads(df, game_name="", category_column="modCategory"):
     if game_name:
@@ -51,6 +54,19 @@ def get_top_by_downloads(df, game_name="", category_column="modCategory"):
     category_per_download = (download_sums / category_count).sort_values(ascending=False)
 
     return category_per_download
+
+def list_all_categories(df):
+    categories = df["modCategory"].unique()
+    return categories
+
+def dump_category_names(df, category_column="modCategory", game_name=""):
+    # per game 
+    categories = df[category_column].unique()
+    with open(f"data/categories.txt", "w") as f:
+        # f.write(f"Categories for {game_name.capitalize()}:\n")
+        for category in categories:
+            f.write(f"{category}\n")
+    print(f"Category names dumped to categories.txt")
 
 def preprocess_mod_data(df):
     df = df.copy()
@@ -84,13 +100,9 @@ def preprocess_mod_data(df):
 
     return df
 
-def list_all_categories(df):
-    categories = df["modCategory"].unique()
-    return categories
 
-
-# games = ["stardewvalley", "minecraft", "skyrim", "cyberpunk2077"]
-games = ["stardewvalley"]
+games = ["stardewvalley", "minecraft", "skyrim", "cyberpunk2077"]
+# games = ["stardewvalley"]
 
 game_df_list = {}
 category_counts = {}
@@ -99,8 +111,11 @@ for game_name in games:
     df = preprocess_mod_data(df)
     game_df_list[game_name] = df
 
+
 all_df = combine_all_games_data(game_df_list)
-print(get_top_by_downloads(all_df, game_name="stardewvalley", category_column="modCategory"))
+dump_category_names(all_df, category_column="modCategory")
+# print(get_top_categories(all_df, game_name="stardewvalley", category_column="modCategory"))
+# print(get_top_by_downloads(all_df, game_name="stardewvalley", category_column="modCategory"))
 
 # all_df = combine_all_games_data(game_df_list)
 # print(get_top_categories(all_df, category_column="modCategory"))
