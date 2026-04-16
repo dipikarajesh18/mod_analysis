@@ -104,12 +104,12 @@ def preprocess_mod_data(df):
 games = ["stardewvalley", "minecraft", "skyrim", "cyberpunk2077"]
 # games = ["stardewvalley"]
 
-game_df_list = {}
-category_counts = {}
-for game_name in games:
-    df = load_mod_data_per_game(game_name)
-    df = preprocess_mod_data(df)
-    game_df_list[game_name] = df
+    game_df_list = {}
+    category_counts = {}
+    for game_name in games:
+        df = load_mod_data_per_game(game_name)
+        df = preprocess_mod_data(df)
+        game_df_list[game_name] = df
 
 
 all_df = combine_all_games_data(game_df_list)
@@ -117,16 +117,16 @@ dump_category_names(all_df, category_column="modCategory")
 # print(get_top_categories(all_df, game_name="stardewvalley", category_column="modCategory"))
 # print(get_top_by_downloads(all_df, game_name="stardewvalley", category_column="modCategory"))
 
-# all_df = combine_all_games_data(game_df_list)
-# print(get_top_categories(all_df, category_column="modCategory"))
+    # all_df = combine_all_games_data(game_df_list)
+    # print(get_top_categories(all_df, category_column="modCategory"))
 
-# print(all_df.head())
+    # print(all_df.head())
 
-#     # get_top_categories(df)
-#     # print(df.columns)
-#     # print("Number of rows for {}: {}".format(game_name, len(df)))
-#     # print(f"\nCategories for {game_name.capitalize()}:")
-#     # print(list_all_categories(df))
+    #     # get_top_categories(df)
+    #     # print(df.columns)
+    #     # print("Number of rows for {}: {}".format(game_name, len(df)))
+    #     # print(f"\nCategories for {game_name.capitalize()}:")
+    #     # print(list_all_categories(df))
 
 
 
