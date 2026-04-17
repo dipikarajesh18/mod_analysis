@@ -2,6 +2,10 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 import matplotlib.pyplot as plt
+import re
+from collections import Counter
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
+import html
 
 
 def load_mod_data_per_game(game_name):
@@ -17,26 +21,15 @@ def combine_all_games_data(game_df_list):
     combined_df = pd.concat(all_dfs, ignore_index=True)
     return combined_df
 
-def plot_category_distribution(df, category_values, top_n=10, game_name="All 4 Games"):
-    category_values.head(top_n).plot(kind="bar")
-    plt.title(f"Top {top_n} Categories Distribution for {game_name}")
-    plt.xlabel("Category")
-    plt.ylabel("Count")
-    plt.xticks(rotation=45, ha="right")
+def plot_value_distribution(df, category_values, category_column="modCategory", metric="Frequency", game_name="All 3 Games"):
+    category_values.head(10).plot(kind="bar")
+    plt.title(f"Distribution of {category_column} for {game_name}")
+    plt.xlabel(category_column)
+    plt.ylabel(metric)
     plt.tight_layout()
     plt.show()
 
-def plot_category_downloads(df, category_values, top_n=10, game_name="All 4 Games"):
-    category_values.head(top_n).plot(kind="bar")
-    plt.title(f"Top {top_n} Categories by Average Downloads for {game_name}")
-    plt.xlabel("Category")
-    plt.ylabel("Average Downloads")
-    plt.xticks(rotation=45, ha="right")
-    plt.tight_layout()
-    plt.show()
-
-
-def get_top_categories(df, game_name="", category_column="modCategory", type="count"):
+def get_category_values(df, game_name="", category_column="modCategory", type="count"):
     if game_name and "game" in df.columns:
         df = df[df["game"] == game_name]
     category_percent = (
@@ -44,17 +37,13 @@ def get_top_categories(df, game_name="", category_column="modCategory", type="co
         .value_counts(normalize=True)
         .mul(100)
     )
-
     category_count = df[category_column].value_counts()
     if type == "count":
-        plot_category_distribution(df, category_count, top_n=10, game_name=game_name.capitalize())
         return category_count
     elif type == "percent":
-        plot_category_distribution(df, category_percent, top_n=10, game_name=game_name.capitalize())
         return category_percent
-    
 
-def get_top_by_downloads(df, game_name="", category_column="modCategory"):
+def get_downloads_per_category(df, game_name="", category_column="modCategory"):
     if game_name and "game" in df.columns:
         df = df[df["game"] == game_name]
 
@@ -63,8 +52,37 @@ def get_top_by_downloads(df, game_name="", category_column="modCategory"):
     
     category_per_download = (download_sums).sort_values(ascending=False)
 
-    plot_category_downloads(df, category_per_download, top_n=10, game_name=game_name.capitalize())
-    return download_sums
+    return category_per_download
+
+def get_downloads_num_mods_category_ratio(df, game_name="", category_column="modCategory"):
+    if game_name and "game" in df.columns:
+        df = df[df["game"] == game_name]
+
+    category_count = df[category_column].value_counts()
+    download_sums = df.groupby(category_column)["downloads"].sum()
+
+    category_ratio = (download_sums / category_count).sort_values(ascending=False)
+
+    return category_ratio
+
+def get_relative_demand(df, game_name="", category_column="modCategory"):
+    if game_name and "game" in df.columns:
+        df = df[df["game"] == game_name]
+
+    mod_share = (
+        df[category_column]
+        .value_counts(normalize=True)
+    )
+
+    download_share = (
+        df.groupby(category_column)["downloads"]
+        .sum()
+        / df["downloads"].sum()
+    )
+
+    relative_demand = (download_share / mod_share).sort_values(ascending=False)
+
+    return relative_demand
 
 def list_all_categories(df):
     categories = df["modCategory"].unique()
@@ -130,33 +148,92 @@ def map_category_names(df, category_column="modCategory"):
     df['broadCategory'] = df['modCategory'].map(mapping_dict)
     return df
 
+def clean_text(text):
+    if pd.isna(text):
+        return ""
 
-games = ["stardewvalley", "minecraft", "skyrim", "cyberpunk2077"]
-# games = ["stardewvalley"]
+    text = str(text)
 
-game_df_list = {}
-category_counts = {}
-for game_name in games:
-    df = load_mod_data_per_game(game_name)
-    df = preprocess_mod_data(df)
-    game_df_list[game_name] = df
+    # unescape html entities
+    text = html.unescape(text)
+
+    # remove urls
+    text = re.sub(r"http\S+|www\.\S+", " ", text)
+
+    # remove html tags
+    text = re.sub(r"<[^>]+>", " ", text)
+
+    # remove bbcode-like tags: [url], [/url], [img], etc.
+    text = re.sub(r"\[/?[^\]]+\]", " ", text)
+
+    # remove leftover html-ish words that often survive scraping
+    text = re.sub(r"\b(?:url|img|href|http|https|www|com)\b", " ", text)
+
+    # remove punctuation / extra whitespace
+    text = re.sub(r"[^a-zA-Z0-9\s]", " ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+
+    return text.lower()
+
+def tokenize(text, stopwords=None):
+    text = clean_text(text)
+    text = text.lower()
+    text = re.sub(r"[^a-z0-9\s]", " ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    tokens = [t for t in text.split() if t not in stopwords and len(t) > 2]
+    return tokens
 
 
 
-# print(get_top_categories(all_df, game_name="stardewvalley", category_column="modCategory"))
-# print(get_top_by_downloads(all_df, game_name="stardewvalley", category_column="modCategory"))
+def get_recurrent_terms(df, game_name="", category_column="modCategory", categories=None, 
+    text_columns=("summary", "description", "tags"), ngram_range=(1, 2), top_n=20, min_freq=2, extra_stopwords=None):
+    working_df = df.copy()
 
-    # all_df = combine_all_games_data(game_df_list)
-    # print(get_top_categories(all_df, category_column="modCategory"))
+    if game_name and "game" in working_df.columns:
+        working_df = working_df[working_df["game"] == game_name]
 
-    # print(all_df.head())
+    if categories is not None:
+        if isinstance(categories, str):
+            categories = [categories]
+        working_df = working_df[working_df[category_column].isin(categories)]
 
-    #     # get_top_categories(df)
-    #     # print(df.columns)
-    #     # print("Number of rows for {}: {}".format(game_name, len(df)))
-    #     # print(f"\nCategories for {game_name.capitalize()}:")
-    #     # print(list_all_categories(df))
+    # Combine text columns safely
+    combined_text = (
+        working_df.loc[:, list(text_columns)]
+        .fillna("")
+        .astype(str)
+        .agg(" ".join, axis=1)
+        .tolist()
+    )
 
+    # Stopwords
+    stopwords = set(ENGLISH_STOP_WORDS)
+    stopwords.update({
+        "mod", "mods", "game", "games", "adds", "add", "new", "also",
+        "one", "two", "use", "using", "used", "make", "makes", "made",
+        "change", "changes", "version", "updated", "update", "includes",
+        "include", "support", "supports", "compatible", "replaces",
+        "replace", "patch", "patches", "player", "players"
+    })
 
+    if extra_stopwords:
+        stopwords.update(set(extra_stopwords))
 
+    counter = Counter()
 
+    min_n, max_n = ngram_range
+
+    for text in combined_text:
+        tokens = tokenize(text, stopwords=stopwords)
+        for n in range(min_n, max_n + 1):
+            if len(tokens) < n:
+                continue
+            ngrams = zip(*[tokens[i:] for i in range(n)])
+            for gram in ngrams:
+                term = " ".join(gram)
+                counter[term] += 1
+
+    # Apply minimum frequency threshold
+    filtered = {term: count for term, count in counter.items() if count >= min_freq}
+
+    return pd.Series(filtered).sort_values(ascending=False).head(top_n)

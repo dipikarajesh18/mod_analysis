@@ -20,7 +20,7 @@ Armour>Weapons and Armour
 Weapons>Weapons and Armour
 Weapons and Armour>Weapons and Armour
 Combat>Weapons and Armour
-Armour and Clothing>Weapons and Armour
+Armour and Clothing>Character Identities
 Bug Fixes>Bug Fixes
 Patches>Bug Fixes
 Character Presets>Character Identities
@@ -53,7 +53,7 @@ Dungeons - Vanilla>Game-Specific Mechanic Expansions
 Books and Scrolls>Game-Specific Mechanic Expansions
 Crops>Game-Specific Mechanic Expansions
 Gameplay>Game-Specific Mechanic Expansions
-- Magic Gameplay>Game-Specific Mechanic Expansions
+Magic Gameplay>Game-Specific Mechanic Expansions
 Skills and Leveling>Game-Specific Mechanic Expansions
 Gameplay Mechanics>Game-Specific Mechanic Expansions
 Immersion>Game-Specific Mechanic Expansions
