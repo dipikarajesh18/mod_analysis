@@ -1,11 +1,12 @@
-Cluster 17 (size=7):
-  - Immersion ['skyrim']
+Game Engine (size=7):
   - Visuals and Graphics ['skyrim', 'stardewvalley', 'cyberpunk2077']
   - User Interface ['skyrim', 'stardewvalley', 'cyberpunk2077']
   - Animation ['skyrim']
   - Videos and Trailers ['skyrim']
   - Animations ['cyberpunk2077']
   - Scripts ['cyberpunk2077']
+
+  
 Audio (size=6):
   - Shouts ['skyrim']
   - Audio ['skyrim', 'stardewvalley', 'cyberpunk2077']
@@ -13,6 +14,7 @@ Audio (size=6):
   - ENB Preset ['skyrim']
   - AI Voices ['cyberpunk2077']
   - Audio Replacer ['cyberpunk2077']
+
 NPCs (size=9):
   - Followers and Companions ['skyrim']
   - NPC ['skyrim']
@@ -22,22 +24,20 @@ NPCs (size=9):
   - New Characters ['stardewvalley']
   - Characters ['stardewvalley', 'cyberpunk2077']
   - Player ['stardewvalley']
+
 Weapons and Armour (size=11):
   - Armour - Shields ['skyrim']
   - Armour ['skyrim']
   - Weapons ['skyrim', 'cyberpunk2077']
   - Weapons and Armour ['skyrim']
   - Combat ['skyrim']
-  - Stealth ['skyrim']
   - Armour and Clothing ['cyberpunk2077']
+
 Bug Fixes (size=2):
   - Bug Fixes ['skyrim']
   - Patches ['skyrim']
-Cluster 8 (size=5):
-  - Gameplay ['skyrim', 'cyberpunk2077']
-  - Magic - Gameplay ['skyrim']
-  - Skills and Leveling ['skyrim']
-  - Gameplay Mechanics ['stardewvalley']
+
+
 Character Appearance (size=7):
   - Character Presets ['skyrim']
   - Body, Face, and Hair ['skyrim']
@@ -81,7 +81,12 @@ Game Mechanic Expansions
   - Dungeons - Vanilla ['skyrim']
   - Books and Scrolls ['skyrim']
   - Crops ['stardewvalley']
-
+  - Gameplay ['skyrim', 'cyberpunk2077']
+  - Magic - Gameplay ['skyrim']
+  - Skills and Leveling ['skyrim']
+  - Gameplay Mechanics ['stardewvalley']
+  - Immersion ['skyrim']
+  - Stealth ['skyrim']
 
 
 Items (size=4):
@@ -91,14 +96,13 @@ Items (size=4):
   - Items and Objects - World ['skyrim']
 
 
-
 Pets and Animals
   - Mounts ['skyrim']
   - Livestock and Animals ['stardewvalley']
   - Pets / Horses ['stardewvalley']
 
+
 Locations (size=6):
-  - Player homes ['skyrim']
   - Locations - Vanilla ['skyrim']
   - Locations -  New ['skyrim']
   - Cities, Towns, Villages, and Hamlets ['skyrim']
@@ -107,7 +111,7 @@ Locations (size=6):
   - New Lands ['skyrim']
   - Landscape Changes ['skyrim']
   - Maps ['stardewvalley']
-
+  
 
 Buildings (size=6):
   - Mercantiles (shops, stores, inns, taverns, etc) ['skyrim']
@@ -115,14 +119,17 @@ Buildings (size=6):
   - Castles, Palaces, Mansions, and Estates ['skyrim']
   - Atelier Shop ['cyberpunk2077']
   - Forts, Ruins, and Abandoned Structures ['skyrim']
+  - Interiors ['stardewvalley']
+  - Apartment ['cyberpunk2077']
+  - Add-On Apartment ['cyberpunk2077']
+  - Player homes ['skyrim']
 
 
 Props and Decorations
   - Furniture ['stardewvalley']
   - Props and Decorations ['cyberpunk2077']
   - Adverts ['cyberpunk2077']
-
-
+  
 
 Expansions
   - Overhauls ['skyrim']
@@ -141,6 +148,5 @@ Expansions
 
 
 Cluster 4 (size=3):
-  - Interiors ['stardewvalley']
-  - Apartment ['cyberpunk2077']
-  - Add-On Apartment ['cyberpunk2077']
+  
+  
