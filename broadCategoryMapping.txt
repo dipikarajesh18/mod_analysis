@@ -1,0 +1,146 @@
+Cluster 17 (size=7):
+  - Immersion ['skyrim']
+  - Visuals and Graphics ['skyrim', 'stardewvalley', 'cyberpunk2077']
+  - User Interface ['skyrim', 'stardewvalley', 'cyberpunk2077']
+  - Animation ['skyrim']
+  - Videos and Trailers ['skyrim']
+  - Animations ['cyberpunk2077']
+  - Scripts ['cyberpunk2077']
+Audio (size=6):
+  - Shouts ['skyrim']
+  - Audio ['skyrim', 'stardewvalley', 'cyberpunk2077']
+  - Audio - SFX, Music, and Voice ['skyrim']
+  - ENB Preset ['skyrim']
+  - AI Voices ['cyberpunk2077']
+  - Audio Replacer ['cyberpunk2077']
+NPCs (size=9):
+  - Followers and Companions ['skyrim']
+  - NPC ['skyrim']
+  - Followers and Companions - Creatures ['skyrim']
+  - Creatures ['skyrim']
+  - NPC - Children ['skyrim']
+  - New Characters ['stardewvalley']
+  - Characters ['stardewvalley', 'cyberpunk2077']
+  - Player ['stardewvalley']
+Weapons and Armour (size=11):
+  - Armour - Shields ['skyrim']
+  - Armour ['skyrim']
+  - Weapons ['skyrim', 'cyberpunk2077']
+  - Weapons and Armour ['skyrim']
+  - Combat ['skyrim']
+  - Stealth ['skyrim']
+  - Armour and Clothing ['cyberpunk2077']
+Bug Fixes (size=2):
+  - Bug Fixes ['skyrim']
+  - Patches ['skyrim']
+Cluster 8 (size=5):
+  - Gameplay ['skyrim', 'cyberpunk2077']
+  - Magic - Gameplay ['skyrim']
+  - Skills and Leveling ['skyrim']
+  - Gameplay Mechanics ['stardewvalley']
+Character Appearance (size=7):
+  - Character Presets ['skyrim']
+  - Body, Face, and Hair ['skyrim']
+  - Portraits ['stardewvalley']
+  - Appearance Change Unlocker Preset ['cyberpunk2077']
+  - Appearance ['cyberpunk2077']
+  - AMM Props ['cyberpunk2077']
+  - Clothing - Jewelry ['skyrim']
+  - Clothing ['skyrim', 'stardewvalley']
+
+
+Modding Tools (size=9):
+  - Save Games ['skyrim']
+  - Models and Textures ['skyrim']
+  - Modders Resources and Tutorials ['skyrim']
+  - Cheats and God items ['skyrim']
+  - Cheats ['stardewvalley']
+  - Modding Tools ['stardewvalley']
+  - Modders Resources ['cyberpunk2077']
+  - Appearance Menu Mod Preset ['cyberpunk2077']
+
+
+Cluster 6 (size=9):
+  - Utilities ['skyrim', 'cyberpunk2077']
+  - Environmental ['skyrim']
+  - Miscellaneous ['skyrim', 'stardewvalley', 'cyberpunk2077']
+  - Configuration ['skyrim']
+  - Races, Classes, and Birthsigns ['skyrim']
+  - Dialogue ['stardewvalley']
+  - Fishing ['stardewvalley']
+  - Vehicles ['cyberpunk2077']
+
+
+Game Mechanic Expansions
+  - Alchemy ['skyrim']
+  - Magic - Spells & Enchantments ['skyrim']
+  - Guilds/Factions ['skyrim']
+  - Quests and Adventures ['skyrim']
+  - Collectables, Treasure Hunts, and Puzzles ['skyrim']
+  - Dungeons - New ['skyrim']
+  - Dungeons - Vanilla ['skyrim']
+  - Books and Scrolls ['skyrim']
+  - Crops ['stardewvalley']
+
+
+
+Items (size=4):
+  - Items ['stardewvalley']
+  - Items and Objects - Player ['skyrim']
+  - Crafting ['skyrim', 'stardewvalley', 'cyberpunk2077']
+  - Items and Objects - World ['skyrim']
+
+
+
+Pets and Animals
+  - Mounts ['skyrim']
+  - Livestock and Animals ['stardewvalley']
+  - Pets / Horses ['stardewvalley']
+
+Locations (size=6):
+  - Player homes ['skyrim']
+  - Locations - Vanilla ['skyrim']
+  - Locations -  New ['skyrim']
+  - Cities, Towns, Villages, and Hamlets ['skyrim']
+  - Locations ['stardewvalley', 'cyberpunk2077']
+  - Events ['stardewvalley']
+  - New Lands ['skyrim']
+  - Landscape Changes ['skyrim']
+  - Maps ['stardewvalley']
+
+
+Buildings (size=6):
+  - Mercantiles (shops, stores, inns, taverns, etc) ['skyrim']
+  - Buildings ['skyrim', 'stardewvalley']
+  - Castles, Palaces, Mansions, and Estates ['skyrim']
+  - Atelier Shop ['cyberpunk2077']
+  - Forts, Ruins, and Abandoned Structures ['skyrim']
+
+
+Props and Decorations
+  - Furniture ['stardewvalley']
+  - Props and Decorations ['cyberpunk2077']
+  - Adverts ['cyberpunk2077']
+
+
+
+Expansions
+  - Overhauls ['skyrim']
+  - Expansions ['stardewvalley']
+
+
+  - Enderal: Miscellaneous ['skyrim']
+  - Enderal: Spells &amp; Enchantments ['skyrim']
+  - Enderal: User Interface ['skyrim']
+  - Enderal: Player Homes ['skyrim']
+  - Enderal: Weapons ['skyrim']
+  - Enderal: Cheats and God items ['skyrim']
+  - Enderal: Bug Fixes ['skyrim']
+  - Enderal: Armour ['skyrim']
+
+
+
+Cluster 4 (size=3):
+  - Interiors ['stardewvalley']
+  - Apartment ['cyberpunk2077']
+  - Add-On Apartment ['cyberpunk2077']
