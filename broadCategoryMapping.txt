@@ -1,31 +1,30 @@
-Game Engine (size=7):
-  - Visuals and Graphics ['skyrim', 'stardewvalley', 'cyberpunk2077']
-  - User Interface ['skyrim', 'stardewvalley', 'cyberpunk2077']
-  - Animation ['skyrim']
-  - Videos and Trailers ['skyrim']
-  - Animations ['cyberpunk2077']
-  - Scripts ['cyberpunk2077']
 
+Animation ['skyrim'] > Animations and Visuals
+  - Animations ['cyberpunk2077'] > Animations and Visuals
+  - Videos and Trailers ['skyrim']
+  - Visuals and Graphics ['skyrim', 'stardewvalley', 'cyberpunk2077']
+  - ENB Preset ['skyrim']
+  - Models and Textures ['skyrim']
+
+
+User Interface
+  - User Interface ['skyrim', 'stardewvalley', 'cyberpunk2077']
   
-Audio (size=6):
-  - Shouts ['skyrim']
+Audio
   - Audio ['skyrim', 'stardewvalley', 'cyberpunk2077']
   - Audio - SFX, Music, and Voice ['skyrim']
-  - ENB Preset ['skyrim']
   - AI Voices ['cyberpunk2077']
   - Audio Replacer ['cyberpunk2077']
 
-NPCs (size=9):
+NPCs
   - Followers and Companions ['skyrim']
   - NPC ['skyrim']
-  - Followers and Companions - Creatures ['skyrim']
-  - Creatures ['skyrim']
   - NPC - Children ['skyrim']
   - New Characters ['stardewvalley']
   - Characters ['stardewvalley', 'cyberpunk2077']
-  - Player ['stardewvalley']
+  - Dialogue ['stardewvalley']
 
-Weapons and Armour (size=11):
+Weapons and Armour 
   - Armour - Shields ['skyrim']
   - Armour ['skyrim']
   - Weapons ['skyrim', 'cyberpunk2077']
@@ -33,12 +32,12 @@ Weapons and Armour (size=11):
   - Combat ['skyrim']
   - Armour and Clothing ['cyberpunk2077']
 
-Bug Fixes (size=2):
+Bug Fixes
   - Bug Fixes ['skyrim']
   - Patches ['skyrim']
 
 
-Character Appearance (size=7):
+Character Identities 
   - Character Presets ['skyrim']
   - Body, Face, and Hair ['skyrim']
   - Portraits ['stardewvalley']
@@ -47,31 +46,26 @@ Character Appearance (size=7):
   - AMM Props ['cyberpunk2077']
   - Clothing - Jewelry ['skyrim']
   - Clothing ['skyrim', 'stardewvalley']
+  - Player ['stardewvalley']
+  - Races, Classes, and Birthsigns ['skyrim']
 
-
-Modding Tools (size=9):
-  - Save Games ['skyrim']
-  - Models and Textures ['skyrim']
-  - Modders Resources and Tutorials ['skyrim']
+Cheats
   - Cheats and God items ['skyrim']
   - Cheats ['stardewvalley']
+
+Modding Tools (size=9):
+  - Modders Resources and Tutorials ['skyrim']
   - Modding Tools ['stardewvalley']
   - Modders Resources ['cyberpunk2077']
   - Appearance Menu Mod Preset ['cyberpunk2077']
-
-
-Cluster 6 (size=9):
-  - Utilities ['skyrim', 'cyberpunk2077']
-  - Environmental ['skyrim']
-  - Miscellaneous ['skyrim', 'stardewvalley', 'cyberpunk2077']
   - Configuration ['skyrim']
-  - Races, Classes, and Birthsigns ['skyrim']
-  - Dialogue ['stardewvalley']
-  - Fishing ['stardewvalley']
-  - Vehicles ['cyberpunk2077']
 
+Miscellaneous
+  - Miscellaneous ['skyrim', 'stardewvalley', 'cyberpunk2077']
+  - Scripts ['cyberpunk2077']
+  - Utilities ['skyrim', 'cyberpunk2077']
 
-Game Mechanic Expansions
+Game-Specific Mechanic Expansions
   - Alchemy ['skyrim']
   - Magic - Spells & Enchantments ['skyrim']
   - Guilds/Factions ['skyrim']
@@ -87,22 +81,29 @@ Game Mechanic Expansions
   - Gameplay Mechanics ['stardewvalley']
   - Immersion ['skyrim']
   - Stealth ['skyrim']
+  - Fishing ['stardewvalley']
+  - Vehicles ['cyberpunk2077']
+  - Shouts ['skyrim']
 
 
-Items (size=4):
+Items
   - Items ['stardewvalley']
   - Items and Objects - Player ['skyrim']
   - Crafting ['skyrim', 'stardewvalley', 'cyberpunk2077']
   - Items and Objects - World ['skyrim']
 
 
-Pets and Animals
+Pets, Animals and Monsters
   - Mounts ['skyrim']
   - Livestock and Animals ['stardewvalley']
   - Pets / Horses ['stardewvalley']
+  - Creatures ['skyrim']
+  - Followers and Companions - Creatures ['skyrim']
 
 
-Locations (size=6):
+
+
+Environment
   - Locations - Vanilla ['skyrim']
   - Locations -  New ['skyrim']
   - Cities, Towns, Villages, and Hamlets ['skyrim']
@@ -111,6 +112,7 @@ Locations (size=6):
   - New Lands ['skyrim']
   - Landscape Changes ['skyrim']
   - Maps ['stardewvalley']
+  - Environmental ['skyrim']
   
 
 Buildings (size=6):
@@ -134,8 +136,6 @@ Props and Decorations
 Expansions
   - Overhauls ['skyrim']
   - Expansions ['stardewvalley']
-
-
   - Enderal: Miscellaneous ['skyrim']
   - Enderal: Spells &amp; Enchantments ['skyrim']
   - Enderal: User Interface ['skyrim']
@@ -145,8 +145,7 @@ Expansions
   - Enderal: Bug Fixes ['skyrim']
   - Enderal: Armour ['skyrim']
 
+Archival
+  - Save Games ['skyrim']
 
 
-Cluster 4 (size=3):
-  
-  

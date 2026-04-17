@@ -107,6 +107,25 @@ def preprocess_mod_data(df):
 
     return df
 
+def create_category_mapping():
+    with open("category_mapping.txt", "r") as f:
+        mapping = [line.strip() for line in f.readlines()]
+
+    mapping_dict = {}
+    for mapping_entry in mapping:
+        old_category, new_category = mapping_entry.split(">")
+        old_category = old_category.strip()
+        new_category = new_category.strip()
+        mapping_dict[old_category] = new_category
+    return mapping_dict
+
+def map_category_names(df, category_column="modCategory"):
+    # load from .txt, strip on >
+    mapping_dict = create_category_mapping()
+    # map old category names to new category names
+    df['broadCategory'] = df['modCategory'].map(mapping_dict)
+    return df
+
 
 games = ["stardewvalley", "minecraft", "skyrim", "cyberpunk2077"]
 # games = ["stardewvalley"]
@@ -120,6 +139,9 @@ for game_name in games:
 
 
 all_df = combine_all_games_data(game_df_list)
+print(map_category_names(all_df))
+
+
 # print(get_top_categories(all_df, game_name="stardewvalley", category_column="modCategory"))
 # print(get_top_by_downloads(all_df, game_name="stardewvalley", category_column="modCategory"))
 
