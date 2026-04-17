@@ -43,13 +43,16 @@ def get_top_categories(df, game_name="", category_column="modCategory", type="co
         df[category_column]
         .value_counts(normalize=True)
         .mul(100)
-    )  
+    )
 
     category_count = df[category_column].value_counts()
     if type == "count":
         plot_category_distribution(df, category_count, top_n=10, game_name=game_name.capitalize())
+        return category_count
     elif type == "percent":
         plot_category_distribution(df, category_percent, top_n=10, game_name=game_name.capitalize())
+        return category_percent
+    
 
 def get_top_by_downloads(df, game_name="", category_column="modCategory"):
     if game_name and "game" in df.columns:
@@ -58,9 +61,10 @@ def get_top_by_downloads(df, game_name="", category_column="modCategory"):
     category_count = df[category_column].value_counts()
     download_sums = df.groupby(category_column)["downloads"].sum()
     
-    category_per_download = (download_sums / category_count).sort_values(ascending=False)
+    category_per_download = (download_sums).sort_values(ascending=False)
 
     plot_category_downloads(df, category_per_download, top_n=10, game_name=game_name.capitalize())
+    return download_sums
 
 def list_all_categories(df):
     categories = df["modCategory"].unique()
@@ -137,9 +141,6 @@ for game_name in games:
     df = preprocess_mod_data(df)
     game_df_list[game_name] = df
 
-
-all_df = combine_all_games_data(game_df_list)
-print(map_category_names(all_df))
 
 
 # print(get_top_categories(all_df, game_name="stardewvalley", category_column="modCategory"))
